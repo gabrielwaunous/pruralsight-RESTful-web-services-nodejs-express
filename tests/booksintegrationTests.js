@@ -17,9 +17,9 @@ describe('Book Crud Test', () => {
     agent.post('/api/books')
       .send(bookPost)
       .expect(200)
-      .end((err, result) => {
-        // console.log(results);
-        // results.body.read.should.not.equal(false);
+      .end((err, results) => {
+        //console.log(results);
+        //results.body.read.should.not.equal(false);
         results.body.should.have.property('_id');
         done();
       });

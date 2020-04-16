@@ -13,7 +13,7 @@
     "url": "git+https://github.com/gabrielwaunous/pruralsight-RESTful-web-services-nodejs-express.git"
   },
   "author": "GH",
-  "license": "ISC",  
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",

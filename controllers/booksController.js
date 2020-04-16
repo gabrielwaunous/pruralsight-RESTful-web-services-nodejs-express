@@ -1,7 +1,7 @@
 function booksController(Book) {
   function post (req, res) {
     const book = new Book(req.body);
-    if (!req.body,title) {
+    if (!req.body.title) {
       res.status(400);
       return res.send('Title is required');
     }
@@ -20,7 +20,13 @@ function booksController(Book) {
       if (err) {
         return res.send(err);
       }
-      return res.json(books);
+      const returnBooks = books.map((book) => {
+        let newBook = book.toJSON();
+        newBook.links = {};
+        newBook.links.self = `http://${req.headers.host}/api/books/${book._id}`;
+        return newBook;
+      });
+      return res.json(returnBooks);
     });
   }
   return { post, get};
